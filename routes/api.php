@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,10 @@ use App\Http\Controllers\Api\UserController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
+// ログインエンドポイントのroute
+// ユーザーがemailとpasswordで認証を行うためのもの
+Route::post('/login', [AuthController::class, 'login'])->name('login');;
 
 // sanctumミドルウェアにより、 APIトークン か Cookie による
 // 認証が無いとアクセスできない。
