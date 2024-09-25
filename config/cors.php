@@ -17,9 +17,11 @@ return [
 
     'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
-    'allowed_methods' => ['*'],
+    'allowed_methods' => ['*']
 
-    'allowed_origins' => ['*'],
+    //'allowed_origins' => ['*'],
+    // Sanctumが正しく動作するためCORSの設定
+    'allowed_origins' => ['http://localhost:8080'],
 
     'allowed_origins_patterns' => [],
 
