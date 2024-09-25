@@ -21,6 +21,11 @@ return [
         Sanctum::currentApplicationUrlWithPort()
     ))),
 
+    // APIと異なるポートで動作しているため、
+    // stateful設定でフロントエンドのオリジンを指定する。
+    // これにより Sanctum はフロントエンドから送信される認証付きリクエストを認識する。
+    'stateful' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', 'localhost:8080,127.0.0.1:8000')),
+
     /*
     |--------------------------------------------------------------------------
     | Sanctum Guards
@@ -46,7 +51,9 @@ return [
     |
     */
 
-    'expiration' => null,
+    //'expiration' => null,
+
+    'expiration' => 120,    // 120分でトークンが失効する。
 
     /*
     |--------------------------------------------------------------------------
