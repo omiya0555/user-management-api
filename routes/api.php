@@ -16,6 +16,8 @@ use App\Http\Controllers\Api\UserController;
 |
 */
 
+// sanctumミドルウェアにより、 APIトークン か Cookie による
+// 認証が無いとアクセスできない。
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/users', [UserController::class, 'index']);    // ユーザー一覧
     Route::get('/users/{id}', [UserController::class, 'show']); // ユーザー詳細
