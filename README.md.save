@@ -28,7 +28,7 @@
 ### バックエンド（Laravel API）
 1. **プロジェクトのクローン**:
     ```bash
-    git clone https://github.com/omiya0555/user-management-api.git
+    git clone https://github.com/yourusername/backend.git
     cd backend
     ```
 
@@ -57,7 +57,7 @@
 ### フロントエンド（Vue.js）
 1. **プロジェクトのクローン**:
     ```bash
-    git clone https://github.com/omiya0555/user-management-frontend.git
+    git clone https://github.com/yourusername/frontend.git
     cd frontend
     ```
 
@@ -73,12 +73,12 @@
 
 ## APIエンドポイント
 
+### 認証不要なエンドポイント
+- **GET** `/api/users` - ユーザーの一覧を取得します。
+
 ### 認証が必要なエンドポイント
-- **GET** `/api/users` - ユーザーの情報を取得します。
 - **GET** `/api/users/{id}` - ユーザーの詳細情報を取得します。
-- **POST** `/api/users` - ユーザーを作成します。
-- **PUT** `/api/users/{id}` - ユーザーの情報を更新します。
-- **DELETE** `/api/users/{id}` - ユーザーを削除します。
+- **PUT** `/api/users/{id}` - ユーザーの情報を更新しま- **DELETE** `/api/users/{id}` - ユーザーを削除します。
 
 ## APIトークンの発行方法
 ユーザーのログイン時にトークンを発行するには、次の手順を実行します。
@@ -87,7 +87,7 @@
     ```bash
     curl -X POST http://localhost/api/login \
     -H "Content-Type: application/json" \
-    -d '{"email": "testuser@gmail.com", "password": "testuser"}'
+    -d '{"email": "testuser@gmail.com", "password": "testpassword"}'
     ```
 
 2. **レスポンス例**:
@@ -111,3 +111,8 @@
     curl -X GET http://localhost/api/users/1 \
     -H "Authorization: Bearer api_token_value"
     ```
+
+## 今後の開発予定
+- ロール管理（管理者と一般ユーザーの区別）
+- パスワードリセット機能
+- ダークモードの実装
